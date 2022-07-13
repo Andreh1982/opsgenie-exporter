@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  opsgenie-exporter:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: opsgenie-exporter
+    ports:
+      - "2112:2112"
+    networks:
+      - monitoring
+    env_file: 
+      - ./env.local
+
+networks: 
+    monitoring:

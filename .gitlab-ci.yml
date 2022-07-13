@@ -1,0 +1,139 @@
+variables:
+  SERVICE_NAME: "opsgenie-exporter"
+  REGISTRY_IMAGE_PATH: "su-sre/opsgenie-exporter"
+
+stages:
+  - prepare
+  - build
+  - docker-staging
+  - deploy-staging
+  - docker-production
+  - deploy-production
+.only_main_branch:
+  only:
+    variables:
+      - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+.docker_push:
+  extends: .only_main_branch
+  image: docker
+  before_script:
+    - apk add -U --no-cache aws-cli
+    - $(aws ecr get-login --no-include-email --region us-east-1)
+  script:
+    - ECR_DOCKER_TAG=${REGISTRY_ADDRESS}/${REGISTRY_IMAGE_PATH}:v-${CI_COMMIT_SHORT_SHA}
+    - docker load -i artifacts/${SERVICE_NAME}.tar
+    - docker tag ${SERVICE_NAME} ${ECR_DOCKER_TAG}
+    - docker push ${ECR_DOCKER_TAG}
+    - docker rmi ${ECR_DOCKER_TAG}
+
+.deploy_to_ops:
+  extends: .only_main_branch
+  image: docker
+  before_script:
+    - apk add -U --no-cache jq curl
+  script:
+    - ECR_DOCKER_TAG=${REGISTRY_ADDRESS}/${REGISTRY_IMAGE_PATH}:v-${CI_COMMIT_SHORT_SHA}
+    - echo ECR_DOCKER_TAG=${ECR_DOCKER_TAG}
+    - OPS_BASE_ENDPOINT=${OPS_API_ADDRESS}:${OPS_API_PORT}
+    - echo OPS_BASE_ENDPOINT=${OPS_BASE_ENDPOINT}
+    - TOKEN=$(curl -s -H "Content-Type:application/json" -XPOST "${OPS_BASE_ENDPOINT}/auth" -d "{\"key\":\"$OPS_API_KEY_VALUE\"}"| jq -r .access_token)
+    - curl
+      -H "Authorization:Bearer ${TOKEN}"
+      -H "Content-Type:application/json"
+      -XPATCH "${OPS_BASE_ENDPOINT}/v1/applications/${OPS_APP_UUID}"
+      -d "{\"image\":\"${ECR_DOCKER_TAG}\"}"
+
+lint:
+  image: golang:1.17
+  stage: prepare
+  script:
+    - go install honnef.co/go/tools/cmd/staticcheck@2022.1.2
+    - make lint
+  allow_failure: true ## Até acertarmos um bom litner
+
+build:
+  extends: .only_main_branch
+  image: docker
+  stage: build
+  needs: 
+    - lint
+  script:
+    - docker build
+      --force-rm
+      -t ${SERVICE_NAME} .
+    - mkdir artifacts 
+    - docker save ${SERVICE_NAME} > artifacts/${SERVICE_NAME}.tar
+
+  artifacts:
+    paths:
+      - artifacts
+  retry:
+    max: 2
+    when:
+      - always
+  
+##################################################
+## STG
+##################################################
+staging docker push:
+  extends: .docker_push
+  stage: docker-staging
+  environment: staging
+  tags:
+    - Shared_Staging
+  needs: 
+    - build
+  variables:
+    REGISTRY_ADDRESS: $REGISTRY_STG_ADDR
+
+staging deploy:
+  extends: .deploy_to_ops
+  stage: deploy-staging
+  environment: staging
+  allow_failure: true ## para quando o ops esta fora de stage
+  tags:
+    - Shared_Staging
+  needs:
+    - staging docker push
+  variables:
+    OPS_API_ADDRESS: $OPS_STG_API_ADDRESS
+    OPS_API_PORT: $OPS_STG_API_PORT
+    OPS_API_KEY_VALUE: $OPS_STG_API_KEY
+    OPS_APP_UUID: $OPS_STG_APP_UUID
+    REGISTRY_ADDRESS: $REGISTRY_STG_ADDR
+
+##################################################
+## PRD
+##################################################
+
+production docker push:
+  extends: .docker_push
+  stage: docker-production
+  environment: production
+  needs: 
+    - build
+  variables:
+    OPS_API_ADDRESS: $OPS_PRD_API_ADDRESS
+    OPS_API_PORT: $OPS_PRD_API_PORT
+    OPS_API_KEY_VALUE: $OPS_API_KEY
+    OPS_APP_UUID: $OPS_PRD_APP_UUID
+    REGISTRY_ADDRESS: $REGISTRY_ADDR
+
+production deploy:
+  extends: .deploy_to_ops
+  when: manual
+  stage: deploy-production
+  environment: production
+  needs:
+    - production docker push
+  variables:
+    OPS_API_ADDRESS: $OPS_PRD_API_ADDRESS
+    OPS_API_PORT: $OPS_PRD_API_PORT
+    OPS_API_KEY_VALUE: $OPS_API_KEY
+    OPS_APP_UUID: $OPS_PRD_APP_UUID
+    REGISTRY_ADDRESS: $REGISTRY_ADDR
+
+default:
+  tags:
+    - Shared

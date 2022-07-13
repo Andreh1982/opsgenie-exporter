@@ -1,0 +1,9 @@
+.history
+config.json
+.terraform
+.terraform*
+.env
+.env.local
+env
+env.local
+.vscode
