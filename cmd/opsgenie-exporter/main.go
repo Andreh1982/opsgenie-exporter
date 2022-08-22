@@ -1,11 +1,11 @@
 package main
 
 import (
-	"opsgenie-exporter/internal/metrics"
+	"opsgenie-exporter/internal/domain/prometheusDomain"
 )
 
 func main() {
 
-	metrics.PushMetrics()
+	prometheusDomain.PushMetrics()
 
 }
