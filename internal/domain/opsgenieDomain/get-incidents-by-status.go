@@ -13,7 +13,11 @@ var counterPostmortemClosed int = 0
 var counterPostmortemResolved int = 0
 var counterTeamIncidentsClosed int = 0
 
-func TotalIncidentList() (totalClosed int, totalResolved int, totalOpened int) {
+type IncidentsTotalbyStatus interface {
+	IncidentsTotalbyStatus() (int, int, int, error)
+}
+
+func (e *opsgenieExporter) IncidentsTotalbyStatus() (totalClosed int, totalResolved int, totalOpened int, err error) {
 
 	var bodyBytesClosed []byte
 	var respPayload IncidentList
@@ -37,12 +41,12 @@ func TotalIncidentList() (totalClosed int, totalResolved int, totalOpened int) {
 	json.Unmarshal(bodyBytesOpened, &respPayload)
 	totalOpened = respPayload.TotalCount
 
-	GetIdFromAll("resolved")
+	getIdFromAll("resolved")
 
-	return totalClosed, totalResolved, totalOpened
+	return totalClosed, totalResolved, totalOpened, err
 }
 
-func GetIdFromAll(status string) {
+func getIdFromAll(status string) {
 	environment.InitEnv()
 	apiUrl := os.Getenv("OPSGENIE_API_URL")
 	var responsePayload IncidentList

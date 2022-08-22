@@ -22,13 +22,15 @@ func recordMetrics() {
 
 	go func() {
 		for {
-			totalTeams := opsgenieDomain.CountTeams("closed")
+			totalTeams, _ := opsgenieDomain.CountTeams("closed")
 			opsTeamsList.Set(float64(totalTeams))
-
-			closed, resolved, opened := opsgenieDomain.TotalIncidentList()
-			opsClosed.Set(float64(closed))
-			opsResolved.Set(float64(resolved))
-			opsOpened.Set(float64(opened))
+			// closed, resolved, opened, err := opsgenieDomain.IncidentsTotalbyStatus()
+			// if err != nil {
+			// 	panic(err)
+			// }
+			// opsClosed.Set(float64(closed))
+			// opsResolved.Set(float64(resolved))
+			// opsOpened.Set(float64(opened))
 
 			opsgenieDomain.CheckPostMortems("closed")
 			opsPostmortemClosed.Set(float64(counterPostmortemClosed))

@@ -10,7 +10,7 @@ import (
 
 var MetricStorage []string
 
-func CountTeams(status string) (teamsTotal int) {
+func CountTeams(status string) (teamsTotal int, err error) {
 
 	var responsePayload TeamsList
 
@@ -18,13 +18,15 @@ func CountTeams(status string) (teamsTotal int) {
 	apiUrlString := "https://api.opsgenie.com/v2/teams"
 
 	bodyBytes := api.HandlerSingle("GET", apiUrlString)
-	json.Unmarshal(bodyBytes, &responsePayload)
-
+	err = json.Unmarshal(bodyBytes, &responsePayload)
+	if err != nil {
+		return 0, err
+	}
 	teamsTotal = len(responsePayload.Data)
 
 	ListTeamsNames(responsePayload, teamsTotal, status)
 
-	return teamsTotal
+	return teamsTotal, err
 }
 
 func ListTeamsNames(teamList TeamsList, total int, status string) {

@@ -1,0 +1,576 @@
+# HELP opsgenie_incidents_closed_logistics__plp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp gauge
+opsgenie_incidents_closed_logistics__plp 3
+# HELP opsgenie_incidents_closed_finops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_finops gauge
+opsgenie_incidents_closed_finops 0
+# HELP opsgenie_incidents_closed_ocp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_ocp gauge
+opsgenie_incidents_closed_ocp 0
+# HELP opsgenie_incidents_closed_partners TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_partners gauge
+opsgenie_incidents_closed_partners 3
+# HELP opsgenie_incidents_closed_dx__seller TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__seller gauge
+opsgenie_incidents_closed_dx__seller 1
+# HELP opsgenie_incidents_closed_sucatlogo TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sucatlogo gauge
+opsgenie_incidents_closed_sucatlogo 0
+# HELP opsgenie_incidents_closed_sre_prd TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sre_prd gauge
+opsgenie_incidents_closed_sre_prd 0
+# HELP opsgenie_incidents_closed_bx TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bx gauge
+opsgenie_incidents_closed_bx 4
+# HELP opsgenie_incidents_closed_pax TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_pax gauge
+opsgenie_incidents_closed_pax 0
+# HELP opsgenie_incidents_closed_logistics__fbo TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__fbo gauge
+opsgenie_incidents_closed_logistics__fbo 4
+# HELP opsgenie_incidents_closed_tcs TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tcs gauge
+opsgenie_incidents_closed_tcs 2
+# HELP opsgenie_incidents_closed_mobile TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_mobile gauge
+opsgenie_incidents_closed_mobile 0
+# HELP opsgenie_incidents_closed_tech_rpabpm TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tech_rpabpm gauge
+opsgenie_incidents_closed_tech_rpabpm 0
+# HELP opsgenie_incidents_closed_dx__sre TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__sre gauge
+opsgenie_incidents_closed_dx__sre 2
+# HELP opsgenie_incidents_closed_tech TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tech gauge
+opsgenie_incidents_closed_tech 0
+# HELP opsgenie_incidents_closed_vnda__direct TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__direct gauge
+opsgenie_incidents_closed_vnda__direct 0
+# HELP opsgenie_incidents_closed_webapp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_webapp gauge
+opsgenie_incidents_closed_webapp 3
+# HELP opsgenie_incidents_closed_architecture TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_architecture gauge
+opsgenie_incidents_closed_architecture 0
+# HELP opsgenie_incidents_closed_bsa__seller_success TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__seller_success gauge
+opsgenie_incidents_closed_bsa__seller_success 0
+# HELP opsgenie_incidents_closed_dx__frontend_platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__frontend_platform gauge
+opsgenie_incidents_closed_dx__frontend_platform 0
+# HELP opsgenie_incidents_closed_vnda__fulfillment TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__fulfillment gauge
+opsgenie_incidents_closed_vnda__fulfillment 0
+# HELP opsgenie_incidents_closed_dx__accounts TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__accounts gauge
+opsgenie_incidents_closed_dx__accounts 4
+# HELP opsgenie_incidents_closed_growth TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_growth gauge
+opsgenie_incidents_closed_growth 0
+# HELP opsgenie_incidents_closed_catalog__matching__moderation__desativado TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__matching__moderation__desativado gauge
+opsgenie_incidents_closed_catalog__matching__moderation__desativado 0
+# HELP opsgenie_incidents_closed_logistics__plp__p2 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p2 gauge
+opsgenie_incidents_closed_logistics__plp__p2 0
+# HELP opsgenie_incidents_closed_labs TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_labs gauge
+opsgenie_incidents_closed_labs 0
+# HELP opsgenie_incidents_closed_sellersuccess TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sellersuccess gauge
+opsgenie_incidents_closed_sellersuccess 0
+# HELP opsgenie_incidents_closed_catalog__publicacao TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__publicacao gauge
+opsgenie_incidents_closed_catalog__publicacao 0
+# HELP opsgenie_incidents_closed_pricingbilling TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_pricingbilling gauge
+opsgenie_incidents_closed_pricingbilling 2
+# HELP opsgenie_incidents_closed_dx__developer_engineering TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__developer_engineering gauge
+opsgenie_incidents_closed_dx__developer_engineering 0
+# HELP opsgenie_incidents_closed_implementation TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_implementation gauge
+opsgenie_incidents_closed_implementation 0
+# HELP opsgenie_incidents_closed_orders TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_orders gauge
+opsgenie_incidents_closed_orders 2
+# HELP opsgenie_incidents_closed_departmentstore TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_departmentstore gauge
+opsgenie_incidents_closed_departmentstore 0
+# HELP opsgenie_incidents_closed_corporate_systems TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_corporate_systems gauge
+opsgenie_incidents_closed_corporate_systems 0
+# HELP opsgenie_incidents_closed_logistics__freights TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__freights gauge
+opsgenie_incidents_closed_logistics__freights 0
+# HELP opsgenie_incidents_closed_bsa__shops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__shops gauge
+opsgenie_incidents_closed_bsa__shops 0
+# HELP opsgenie_incidents_closed_vnda__onboarding TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__onboarding gauge
+opsgenie_incidents_closed_vnda__onboarding 0
+# HELP opsgenie_incidents_closed_vnda__checkout TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__checkout gauge
+opsgenie_incidents_closed_vnda__checkout 0
+# HELP opsgenie_incidents_closed_controller TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_controller gauge
+opsgenie_incidents_closed_controller 1
+# HELP opsgenie_incidents_closed_onboarding TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_onboarding gauge
+opsgenie_incidents_closed_onboarding 0
+# HELP opsgenie_incidents_closed_bsa__logistics TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__logistics gauge
+opsgenie_incidents_closed_bsa__logistics 0
+# HELP opsgenie_incidents_closed_i18n TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_i18n gauge
+opsgenie_incidents_closed_i18n 2
+# HELP opsgenie_incidents_closed_cybersecurity TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_cybersecurity gauge
+opsgenie_incidents_closed_cybersecurity 0
+# HELP opsgenie_incidents_closed_shops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_shops gauge
+opsgenie_incidents_closed_shops 0
+# HELP opsgenie_incidents_closed_channels TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_channels gauge
+opsgenie_incidents_closed_channels 53
+# HELP opsgenie_incidents_closed_back_office TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_back_office gauge
+opsgenie_incidents_closed_back_office 0
+# HELP opsgenie_incidents_closed_expansion TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_expansion gauge
+opsgenie_incidents_closed_expansion 0
+# HELP opsgenie_incidents_closed_dx__cloud_platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__cloud_platform gauge
+opsgenie_incidents_closed_dx__cloud_platform 0
+# HELP opsgenie_incidents_closed_logistics__plp__p3 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p3 gauge
+opsgenie_incidents_closed_logistics__plp__p3 0
+# HELP opsgenie_incidents_closed_bsa__seller_profile TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__seller_profile gauge
+opsgenie_incidents_closed_bsa__seller_profile 0
+# HELP opsgenie_incidents_closed_bsa__platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__platform gauge
+opsgenie_incidents_closed_bsa__platform 1
+# HELP opsgenie_incidents_closed_invoicer TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_invoicer gauge
+opsgenie_incidents_closed_invoicer 0
+# HELP opsgenie_incidents_closed_designsystem TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_designsystem gauge
+opsgenie_incidents_closed_designsystem 0
+# HELP opsgenie_incidents_closed_logistics__plp__p1 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p1 gauge
+opsgenie_incidents_closed_logistics__plp__p1 0
+# HELP opsgenie_incidents_closed_sre_stg TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sre_stg gauge
+opsgenie_incidents_closed_sre_stg 0
+# HELP opsgenie_incidents_closed_logistics TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics gauge
+opsgenie_incidents_closed_logistics 2
+# HELP opsgenie_incidents_closed_1p TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_1p gauge
+opsgenie_incidents_closed_1p 0
+# HELP opsgenie_incidents_closed_catalog__team TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__team gauge
+opsgenie_incidents_closed_catalog__team 2
+# HELP opsgenie_incidents_closed_dx__cloud_engineering TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__cloud_engineering gauge
+opsgenie_incidents_closed_dx__cloud_engineering 1
+# HELP opsgenie_incidents_closed_financial TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_financial gauge
+opsgenie_incidents_closed_financial 1
+# HELP opsgenie_incidents_closed_logistics__oss TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__oss gauge
+opsgenie_incidents_closed_logistics__oss 0
+# HELP opsgenie_incidents_closed_crm TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_crm gauge
+opsgenie_incidents_closed_crm 2
+# HELP opsgenie_incidents_closed_vnda__commerce_os TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__commerce_os gauge
+opsgenie_incidents_closed_vnda__commerce_os 3
+# HELP opsgenie_incidents_closed_robin_hood TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_robin_hood gauge
+opsgenie_incidents_closed_robin_hood 0
+# HELP opsgenie_incidents_closed_logistics__plp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp gauge
+opsgenie_incidents_closed_logistics__plp 3
+# HELP opsgenie_incidents_closed_finops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_finops gauge
+opsgenie_incidents_closed_finops 0
+# HELP opsgenie_incidents_closed_ocp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_ocp gauge
+opsgenie_incidents_closed_ocp 0
+# HELP opsgenie_incidents_closed_partners TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_partners gauge
+opsgenie_incidents_closed_partners 3
+# HELP opsgenie_incidents_closed_dx__seller TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__seller gauge
+opsgenie_incidents_closed_dx__seller 1
+# HELP opsgenie_incidents_closed_sucatlogo TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sucatlogo gauge
+opsgenie_incidents_closed_sucatlogo 0
+# HELP opsgenie_incidents_closed_sre_prd TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sre_prd gauge
+opsgenie_incidents_closed_sre_prd 0
+# HELP opsgenie_incidents_closed_bx TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bx gauge
+opsgenie_incidents_closed_bx 4
+# HELP opsgenie_incidents_closed_pax TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_pax gauge
+opsgenie_incidents_closed_pax 0
+# HELP opsgenie_incidents_closed_logistics__fbo TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__fbo gauge
+opsgenie_incidents_closed_logistics__fbo 4
+# HELP opsgenie_incidents_closed_tcs TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tcs gauge
+opsgenie_incidents_closed_tcs 2
+# HELP opsgenie_incidents_closed_mobile TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_mobile gauge
+opsgenie_incidents_closed_mobile 0
+# HELP opsgenie_incidents_closed_tech_rpabpm TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tech_rpabpm gauge
+opsgenie_incidents_closed_tech_rpabpm 0
+# HELP opsgenie_incidents_closed_dx__sre TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__sre gauge
+opsgenie_incidents_closed_dx__sre 2
+# HELP opsgenie_incidents_closed_tech TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tech gauge
+opsgenie_incidents_closed_tech 0
+# HELP opsgenie_incidents_closed_vnda__direct TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__direct gauge
+opsgenie_incidents_closed_vnda__direct 0
+# HELP opsgenie_incidents_closed_webapp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_webapp gauge
+opsgenie_incidents_closed_webapp 3
+# HELP opsgenie_incidents_closed_architecture TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_architecture gauge
+opsgenie_incidents_closed_architecture 0
+# HELP opsgenie_incidents_closed_bsa__seller_success TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__seller_success gauge
+opsgenie_incidents_closed_bsa__seller_success 0
+# HELP opsgenie_incidents_closed_dx__frontend_platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__frontend_platform gauge
+opsgenie_incidents_closed_dx__frontend_platform 0
+# HELP opsgenie_incidents_closed_vnda__fulfillment TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__fulfillment gauge
+opsgenie_incidents_closed_vnda__fulfillment 0
+# HELP opsgenie_incidents_closed_dx__accounts TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__accounts gauge
+opsgenie_incidents_closed_dx__accounts 4
+# HELP opsgenie_incidents_closed_growth TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_growth gauge
+opsgenie_incidents_closed_growth 0
+# HELP opsgenie_incidents_closed_catalog__matching__moderation__desativado TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__matching__moderation__desativado gauge
+opsgenie_incidents_closed_catalog__matching__moderation__desativado 0
+# HELP opsgenie_incidents_closed_logistics__plp__p2 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p2 gauge
+opsgenie_incidents_closed_logistics__plp__p2 0
+# HELP opsgenie_incidents_closed_labs TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_labs gauge
+opsgenie_incidents_closed_labs 0
+# HELP opsgenie_incidents_closed_sellersuccess TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sellersuccess gauge
+opsgenie_incidents_closed_sellersuccess 0
+# HELP opsgenie_incidents_closed_catalog__publicacao TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__publicacao gauge
+opsgenie_incidents_closed_catalog__publicacao 0
+# HELP opsgenie_incidents_closed_pricingbilling TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_pricingbilling gauge
+opsgenie_incidents_closed_pricingbilling 2
+# HELP opsgenie_incidents_closed_dx__developer_engineering TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__developer_engineering gauge
+opsgenie_incidents_closed_dx__developer_engineering 0
+# HELP opsgenie_incidents_closed_implementation TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_implementation gauge
+opsgenie_incidents_closed_implementation 0
+# HELP opsgenie_incidents_closed_orders TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_orders gauge
+opsgenie_incidents_closed_orders 2
+# HELP opsgenie_incidents_closed_departmentstore TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_departmentstore gauge
+opsgenie_incidents_closed_departmentstore 0
+# HELP opsgenie_incidents_closed_corporate_systems TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_corporate_systems gauge
+opsgenie_incidents_closed_corporate_systems 0
+# HELP opsgenie_incidents_closed_logistics__freights TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__freights gauge
+opsgenie_incidents_closed_logistics__freights 0
+# HELP opsgenie_incidents_closed_bsa__shops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__shops gauge
+opsgenie_incidents_closed_bsa__shops 0
+# HELP opsgenie_incidents_closed_vnda__onboarding TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__onboarding gauge
+opsgenie_incidents_closed_vnda__onboarding 0
+# HELP opsgenie_incidents_closed_vnda__checkout TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__checkout gauge
+opsgenie_incidents_closed_vnda__checkout 0
+# HELP opsgenie_incidents_closed_controller TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_controller gauge
+opsgenie_incidents_closed_controller 1
+# HELP opsgenie_incidents_closed_onboarding TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_onboarding gauge
+opsgenie_incidents_closed_onboarding 0
+# HELP opsgenie_incidents_closed_bsa__logistics TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__logistics gauge
+opsgenie_incidents_closed_bsa__logistics 0
+# HELP opsgenie_incidents_closed_i18n TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_i18n gauge
+opsgenie_incidents_closed_i18n 2
+# HELP opsgenie_incidents_closed_cybersecurity TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_cybersecurity gauge
+opsgenie_incidents_closed_cybersecurity 0
+# HELP opsgenie_incidents_closed_shops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_shops gauge
+opsgenie_incidents_closed_shops 0
+# HELP opsgenie_incidents_closed_channels TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_channels gauge
+opsgenie_incidents_closed_channels 53
+# HELP opsgenie_incidents_closed_back_office TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_back_office gauge
+opsgenie_incidents_closed_back_office 0
+# HELP opsgenie_incidents_closed_expansion TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_expansion gauge
+opsgenie_incidents_closed_expansion 0
+# HELP opsgenie_incidents_closed_dx__cloud_platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__cloud_platform gauge
+opsgenie_incidents_closed_dx__cloud_platform 0
+# HELP opsgenie_incidents_closed_logistics__plp__p3 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p3 gauge
+opsgenie_incidents_closed_logistics__plp__p3 0
+# HELP opsgenie_incidents_closed_bsa__seller_profile TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__seller_profile gauge
+opsgenie_incidents_closed_bsa__seller_profile 0
+# HELP opsgenie_incidents_closed_bsa__platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__platform gauge
+opsgenie_incidents_closed_bsa__platform 1
+# HELP opsgenie_incidents_closed_invoicer TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_invoicer gauge
+opsgenie_incidents_closed_invoicer 0
+# HELP opsgenie_incidents_closed_designsystem TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_designsystem gauge
+opsgenie_incidents_closed_designsystem 0
+# HELP opsgenie_incidents_closed_logistics__plp__p1 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p1 gauge
+opsgenie_incidents_closed_logistics__plp__p1 0
+# HELP opsgenie_incidents_closed_sre_stg TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sre_stg gauge
+opsgenie_incidents_closed_sre_stg 0
+# HELP opsgenie_incidents_closed_logistics TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics gauge
+opsgenie_incidents_closed_logistics 2
+# HELP opsgenie_incidents_closed_1p TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_1p gauge
+opsgenie_incidents_closed_1p 0
+# HELP opsgenie_incidents_closed_catalog__team TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__team gauge
+opsgenie_incidents_closed_catalog__team 2
+# HELP opsgenie_incidents_closed_dx__cloud_engineering TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__cloud_engineering gauge
+opsgenie_incidents_closed_dx__cloud_engineering 1
+# HELP opsgenie_incidents_closed_financial TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_financial gauge
+opsgenie_incidents_closed_financial 1
+# HELP opsgenie_incidents_closed_logistics__oss TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__oss gauge
+opsgenie_incidents_closed_logistics__oss 0
+# HELP opsgenie_incidents_closed_crm TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_crm gauge
+opsgenie_incidents_closed_crm 2
+# HELP opsgenie_incidents_closed_vnda__commerce_os TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__commerce_os gauge
+opsgenie_incidents_closed_vnda__commerce_os 3
+# HELP opsgenie_incidents_closed_robin_hood TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_robin_hood gauge
+opsgenie_incidents_closed_robin_hood 0
+# HELP opsgenie_incidents_closed_logistics__plp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp gauge
+opsgenie_incidents_closed_logistics__plp 3
+# HELP opsgenie_incidents_closed_finops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_finops gauge
+opsgenie_incidents_closed_finops 0
+# HELP opsgenie_incidents_closed_ocp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_ocp gauge
+opsgenie_incidents_closed_ocp 0
+# HELP opsgenie_incidents_closed_partners TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_partners gauge
+opsgenie_incidents_closed_partners 3
+# HELP opsgenie_incidents_closed_dx__seller TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__seller gauge
+opsgenie_incidents_closed_dx__seller 1
+# HELP opsgenie_incidents_closed_sucatlogo TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sucatlogo gauge
+opsgenie_incidents_closed_sucatlogo 0
+# HELP opsgenie_incidents_closed_sre_prd TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sre_prd gauge
+opsgenie_incidents_closed_sre_prd 0
+# HELP opsgenie_incidents_closed_bx TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bx gauge
+opsgenie_incidents_closed_bx 4
+# HELP opsgenie_incidents_closed_pax TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_pax gauge
+opsgenie_incidents_closed_pax 0
+# HELP opsgenie_incidents_closed_logistics__fbo TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__fbo gauge
+opsgenie_incidents_closed_logistics__fbo 4
+# HELP opsgenie_incidents_closed_tcs TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tcs gauge
+opsgenie_incidents_closed_tcs 2
+# HELP opsgenie_incidents_closed_mobile TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_mobile gauge
+opsgenie_incidents_closed_mobile 0
+# HELP opsgenie_incidents_closed_tech_rpabpm TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tech_rpabpm gauge
+opsgenie_incidents_closed_tech_rpabpm 0
+# HELP opsgenie_incidents_closed_dx__sre TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__sre gauge
+opsgenie_incidents_closed_dx__sre 2
+# HELP opsgenie_incidents_closed_tech TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_tech gauge
+opsgenie_incidents_closed_tech 0
+# HELP opsgenie_incidents_closed_vnda__direct TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__direct gauge
+opsgenie_incidents_closed_vnda__direct 0
+# HELP opsgenie_incidents_closed_webapp TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_webapp gauge
+opsgenie_incidents_closed_webapp 3
+# HELP opsgenie_incidents_closed_architecture TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_architecture gauge
+opsgenie_incidents_closed_architecture 0
+# HELP opsgenie_incidents_closed_bsa__seller_success TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__seller_success gauge
+opsgenie_incidents_closed_bsa__seller_success 0
+# HELP opsgenie_incidents_closed_dx__frontend_platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__frontend_platform gauge
+opsgenie_incidents_closed_dx__frontend_platform 0
+# HELP opsgenie_incidents_closed_vnda__fulfillment TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__fulfillment gauge
+opsgenie_incidents_closed_vnda__fulfillment 0
+# HELP opsgenie_incidents_closed_dx__accounts TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__accounts gauge
+opsgenie_incidents_closed_dx__accounts 4
+# HELP opsgenie_incidents_closed_growth TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_growth gauge
+opsgenie_incidents_closed_growth 0
+# HELP opsgenie_incidents_closed_catalog__matching__moderation__desativado TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__matching__moderation__desativado gauge
+opsgenie_incidents_closed_catalog__matching__moderation__desativado 0
+# HELP opsgenie_incidents_closed_logistics__plp__p2 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p2 gauge
+opsgenie_incidents_closed_logistics__plp__p2 0
+# HELP opsgenie_incidents_closed_labs TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_labs gauge
+opsgenie_incidents_closed_labs 0
+# HELP opsgenie_incidents_closed_sellersuccess TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sellersuccess gauge
+opsgenie_incidents_closed_sellersuccess 0
+# HELP opsgenie_incidents_closed_catalog__publicacao TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__publicacao gauge
+opsgenie_incidents_closed_catalog__publicacao 0
+# HELP opsgenie_incidents_closed_pricingbilling TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_pricingbilling gauge
+opsgenie_incidents_closed_pricingbilling 2
+# HELP opsgenie_incidents_closed_dx__developer_engineering TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__developer_engineering gauge
+opsgenie_incidents_closed_dx__developer_engineering 0
+# HELP opsgenie_incidents_closed_implementation TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_implementation gauge
+opsgenie_incidents_closed_implementation 0
+# HELP opsgenie_incidents_closed_orders TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_orders gauge
+opsgenie_incidents_closed_orders 2
+# HELP opsgenie_incidents_closed_departmentstore TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_departmentstore gauge
+opsgenie_incidents_closed_departmentstore 0
+# HELP opsgenie_incidents_closed_corporate_systems TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_corporate_systems gauge
+opsgenie_incidents_closed_corporate_systems 0
+# HELP opsgenie_incidents_closed_logistics__freights TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__freights gauge
+opsgenie_incidents_closed_logistics__freights 0
+# HELP opsgenie_incidents_closed_bsa__shops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__shops gauge
+opsgenie_incidents_closed_bsa__shops 0
+# HELP opsgenie_incidents_closed_vnda__onboarding TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__onboarding gauge
+opsgenie_incidents_closed_vnda__onboarding 0
+# HELP opsgenie_incidents_closed_vnda__checkout TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__checkout gauge
+opsgenie_incidents_closed_vnda__checkout 0
+# HELP opsgenie_incidents_closed_controller TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_controller gauge
+opsgenie_incidents_closed_controller 1
+# HELP opsgenie_incidents_closed_onboarding TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_onboarding gauge
+opsgenie_incidents_closed_onboarding 0
+# HELP opsgenie_incidents_closed_bsa__logistics TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__logistics gauge
+opsgenie_incidents_closed_bsa__logistics 0
+# HELP opsgenie_incidents_closed_i18n TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_i18n gauge
+opsgenie_incidents_closed_i18n 2
+# HELP opsgenie_incidents_closed_cybersecurity TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_cybersecurity gauge
+opsgenie_incidents_closed_cybersecurity 0
+# HELP opsgenie_incidents_closed_shops TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_shops gauge
+opsgenie_incidents_closed_shops 0
+# HELP opsgenie_incidents_closed_channels TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_channels gauge
+opsgenie_incidents_closed_channels 53
+# HELP opsgenie_incidents_closed_back_office TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_back_office gauge
+opsgenie_incidents_closed_back_office 0
+# HELP opsgenie_incidents_closed_expansion TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_expansion gauge
+opsgenie_incidents_closed_expansion 0
+# HELP opsgenie_incidents_closed_dx__cloud_platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__cloud_platform gauge
+opsgenie_incidents_closed_dx__cloud_platform 0
+# HELP opsgenie_incidents_closed_logistics__plp__p3 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p3 gauge
+opsgenie_incidents_closed_logistics__plp__p3 0
+# HELP opsgenie_incidents_closed_bsa__seller_profile TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__seller_profile gauge
+opsgenie_incidents_closed_bsa__seller_profile 0
+# HELP opsgenie_incidents_closed_bsa__platform TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_bsa__platform gauge
+opsgenie_incidents_closed_bsa__platform 1
+# HELP opsgenie_incidents_closed_invoicer TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_invoicer gauge
+opsgenie_incidents_closed_invoicer 0
+# HELP opsgenie_incidents_closed_designsystem TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_designsystem gauge
+opsgenie_incidents_closed_designsystem 0
+# HELP opsgenie_incidents_closed_logistics__plp__p1 TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__plp__p1 gauge
+opsgenie_incidents_closed_logistics__plp__p1 0
+# HELP opsgenie_incidents_closed_sre_stg TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_sre_stg gauge
+opsgenie_incidents_closed_sre_stg 0
+# HELP opsgenie_incidents_closed_logistics TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics gauge
+opsgenie_incidents_closed_logistics 2
+# HELP opsgenie_incidents_closed_1p TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_1p gauge
+opsgenie_incidents_closed_1p 0
+# HELP opsgenie_incidents_closed_catalog__team TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_catalog__team gauge
+opsgenie_incidents_closed_catalog__team 2
+# HELP opsgenie_incidents_closed_dx__cloud_engineering TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_dx__cloud_engineering gauge
+opsgenie_incidents_closed_dx__cloud_engineering 1
+# HELP opsgenie_incidents_closed_financial TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_financial gauge
+opsgenie_incidents_closed_financial 1
+# HELP opsgenie_incidents_closed_logistics__oss TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_logistics__oss gauge
+opsgenie_incidents_closed_logistics__oss 0
+# HELP opsgenie_incidents_closed_crm TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_crm gauge
+opsgenie_incidents_closed_crm 2
+# HELP opsgenie_incidents_closed_vnda__commerce_os TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_vnda__commerce_os gauge
+opsgenie_incidents_closed_vnda__commerce_os 3
+# HELP opsgenie_incidents_closed_robin_hood TEAM TOTAL number of CLOSED incidents
+# TYPE opsgenie_incidents_closed_robin_hood gauge
+opsgenie_incidents_closed_robin_hood 0
