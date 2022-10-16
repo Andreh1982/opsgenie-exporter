@@ -33,7 +33,7 @@ func main() {
 		logger.Error("failed to configure opsgenie exporter", zap.Error(err))
 	}
 
-	setupWorker(logger, opsgenieExporterUseCases)
+	setupWorker(ctx, logger, opsgenieExporterUseCases)
 	api.SetupAPI(ctx)
 
 	//	prometheusDomain.PushMetrics()
@@ -45,12 +45,11 @@ func setupOpsgenieExporter(ctx appcontext.Context) (exporter.UseCases, error) {
 	return opsgenieExporterUseCases, nil
 }
 
-func setupWorker(logger logwrapper.LoggerWrapper, opsgenieExporterUseCases exporter.UseCases) {
+func setupWorker(ctx appcontext.Context, logger logwrapper.LoggerWrapper, opsgenieExporterUseCases exporter.UseCases) {
 	logger.Info("Initializing Worker")
 	input := worker.Input{
 		Logger: logger,
 		//OpsgenieExporterUseCases: opsgenieExporterUseCases,
 	}
-	logger.Info("Starting Worker")
-	worker.Start(input)
+	worker.Start(ctx, input)
 }

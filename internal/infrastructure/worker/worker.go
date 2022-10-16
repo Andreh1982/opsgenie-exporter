@@ -12,8 +12,8 @@ import (
 )
 
 type Input struct {
-	Logger logwrapper.LoggerWrapper
-	//OpsgenieExporterUseCases exporter.UseCases
+	Logger                   logwrapper.LoggerWrapper
+	OpsgenieExporterUseCases exporter.UseCases
 }
 
 var (
@@ -37,15 +37,17 @@ var (
 		Name: "opsgenie_postmortem_incidents_resolved",
 		Help: "TOTAL number of RESOLVED incidents POSTMORTEM",
 	})
-	opsTeamsList = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "opsgenie_teams_total",
-		Help: "TOTAL number of TEAMS",
-	})
+	//opsTeamsList = promauto.NewGauge(prometheus.GaugeOpts{
+	//	Name: "opsgenie_teams_total",
+	//	Help: "TOTAL number of TEAMS",
+	//})
 )
 
-func Start(input Input) {
+func Start(ctx appcontext.Context, input Input) {
 	appctx := appcontext.NewBackground()
 	appctx.SetLogger(input.Logger)
+	logger := appctx.Logger()
+	logger.Info("Starting worker")
 	GetMetrics(appctx)
 }
 
@@ -74,11 +76,11 @@ func GetMetrics(ctx appcontext.Context) {
 			opened, _ := exporter.New(ctx, &exporter.Input{}).IncidentsTotalbyStatus("opened")
 			opsOpened.Set(float64(opened))
 
-			//opsPostmortemClosed.Set(float64(counterPostmortemClosed))
+			counterPostmortemClosed, _ := exporter.New(ctx, &exporter.Input{}).PostmortemTotalbyIncidentStatus(ctx, "closed")
+			opsPostmortemClosed.Set(float64(counterPostmortemClosed))
 
-			// counterPostmortemClosed = opsgenieDomain.PostmortemTotalbyIncidentStatus("closed")
-
-			//opsPostmortemResolved.Set(float64(counterPostmortemResolved))
+			_, counterPostmortemResolved := exporter.New(ctx, &exporter.Input{}).PostmortemTotalbyIncidentStatus(ctx, "resolved")
+			opsPostmortemResolved.Set(float64(counterPostmortemResolved))
 
 			time.Sleep(1 * time.Second)
 		}

@@ -11,13 +11,7 @@ type UseCases interface {
 
 type Input struct{}
 
-type opsgenieExporter struct {
-	CounterPostmortem            int `json:"counterPostmortem"`
-	CounterPostmortemClosed      int `json:"counterPostmortemClosed"`
-	CounterPostmortemResolved    int `json:"counterPostmortemResolved"`
-	CounterTeamIncidentsClosed   int `json:"counterTeamIncidentsClosed"`
-	CounterTeamIncidentsResolved int `json:"counterTeamIncidentsResolved"`
-}
+type opsgenieExporter struct{}
 
 func New(ctx appcontext.Context, input *Input) UseCases {
 	return &opsgenieExporter{}

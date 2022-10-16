@@ -10,6 +10,8 @@ type Context interface {
 	Logger() logwrapper.LoggerWrapper
 	SetTotalTeamIncidentsClosed(counterTeamIncidentsClosed int) int
 	SetTotalTeamIncidentsResolved(counterTeamIncidentsResolved int) int
+	SetTotalPostmortemResolved(counterPostmortemResolved int) int
+	SetTotalPostmortemClosed(counterPostmortemClosed int) int
 }
 
 type appContext struct {
@@ -17,6 +19,8 @@ type appContext struct {
 	ctx                        context.Context
 	totalTeamIncidentsClosed   int
 	totalTeamIncidentsResolved int
+	totalPostmortemClosed      int
+	totalPostmortemResolved    int
 }
 
 func New(ctx context.Context) Context {
@@ -32,6 +36,14 @@ func NewBackground() Context {
 	}
 }
 
+func (appContext *appContext) SetLogger(logger logwrapper.LoggerWrapper) {
+	appContext.logger = logger
+}
+
+func (appContext *appContext) Logger() logwrapper.LoggerWrapper {
+	return appContext.logger
+}
+
 func (appContext *appContext) SetTotalTeamIncidentsClosed(counterTeamIncidentsClosed int) int {
 	appContext.totalTeamIncidentsClosed = counterTeamIncidentsClosed
 	return appContext.totalTeamIncidentsClosed
@@ -42,10 +54,12 @@ func (appContext *appContext) SetTotalTeamIncidentsResolved(counterTeamIncidents
 	return appContext.totalTeamIncidentsResolved
 }
 
-func (appContext *appContext) SetLogger(logger logwrapper.LoggerWrapper) {
-	appContext.logger = logger
+func (appContext *appContext) SetTotalPostmortemResolved(counterPostmortem int) int {
+	appContext.totalPostmortemResolved = counterPostmortem
+	return appContext.totalTeamIncidentsResolved
 }
 
-func (appContext *appContext) Logger() logwrapper.LoggerWrapper {
-	return appContext.logger
+func (appContext *appContext) SetTotalPostmortemClosed(counterPostmortem int) int {
+	appContext.totalPostmortemClosed = counterPostmortem
+	return appContext.totalTeamIncidentsClosed
 }
