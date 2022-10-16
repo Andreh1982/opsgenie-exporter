@@ -2,42 +2,50 @@ package appcontext
 
 import (
 	"context"
+	"opsgenie-exporter/internal/infrastructure/logger/logwrapper"
 )
 
-// ContextKey is the key for the app context
-type ContextKey string
-
-const (
-	// AppContextKey is the key for the app context
-	AppContextKey               ContextKey = "appContext"
-	defaultBackgroundContextKey ContextKey = "ctx"
-)
-
-// Context is wrapper for gin context 'n go context. Provide logger with trace_id.
 type Context interface {
-	Context() context.Context
-}
-
-// New returns a new app context
-func New(ctx context.Context) Context {
-	return &appContext{
-		defaultBackgroundContext: ctx,
-	}
-}
-
-// NewBackground returns a new background void context
-func NewBackground() Context {
-	ctx := context.Background()
-
-	return &appContext{
-		defaultBackgroundContext: ctx,
-	}
+	SetLogger(logger logwrapper.LoggerWrapper)
+	Logger() logwrapper.LoggerWrapper
+	SetTotalTeamIncidentsClosed(counterTeamIncidentsClosed int) int
+	SetTotalTeamIncidentsResolved(counterTeamIncidentsResolved int) int
 }
 
 type appContext struct {
-	defaultBackgroundContext context.Context
+	logger                     logwrapper.LoggerWrapper
+	ctx                        context.Context
+	totalTeamIncidentsClosed   int
+	totalTeamIncidentsResolved int
 }
 
-func (appContext *appContext) Context() context.Context {
-	return appContext.defaultBackgroundContext
+func New(ctx context.Context) Context {
+	return &appContext{
+		ctx: ctx,
+	}
+}
+
+func NewBackground() Context {
+	ctx := context.Background()
+	return &appContext{
+		ctx: ctx,
+	}
+}
+
+func (appContext *appContext) SetTotalTeamIncidentsClosed(counterTeamIncidentsClosed int) int {
+	appContext.totalTeamIncidentsClosed = counterTeamIncidentsClosed
+	return appContext.totalTeamIncidentsClosed
+}
+
+func (appContext *appContext) SetTotalTeamIncidentsResolved(counterTeamIncidentsResolved int) int {
+	appContext.totalTeamIncidentsResolved = counterTeamIncidentsResolved
+	return appContext.totalTeamIncidentsResolved
+}
+
+func (appContext *appContext) SetLogger(logger logwrapper.LoggerWrapper) {
+	appContext.logger = logger
+}
+
+func (appContext *appContext) Logger() logwrapper.LoggerWrapper {
+	return appContext.logger
 }

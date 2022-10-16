@@ -1,4 +1,4 @@
-package opsgenieDomain
+package exporter
 
 import "time"
 

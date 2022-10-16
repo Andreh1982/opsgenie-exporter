@@ -1,54 +1,46 @@
-package opsgenieDomain
+package exporter
 
 import (
 	"encoding/json"
 	"fmt"
 	"opsgenie-exporter/internal/infrastructure/api"
 	"opsgenie-exporter/internal/infrastructure/environment"
-	"os"
 )
 
 var apiUrlString string
-var counterPostmortemClosed int = 0
-var counterPostmortemResolved int = 0
-var counterTeamIncidentsClosed int = 0
 
 type IncidentsTotalbyStatus interface {
-	IncidentsTotalbyStatus() (int, int, int, error)
+	IncidentsTotalbyStatus(string) (int, error)
 }
 
-func (e *opsgenieExporter) IncidentsTotalbyStatus() (totalClosed int, totalResolved int, totalOpened int, err error) {
-
+func (e *opsgenieExporter) IncidentsTotalbyStatus(status string) (total int, err error) {
 	var bodyBytesClosed []byte
 	var respPayload IncidentList
+	var apiUrl string
 
-	environment.InitEnv()
-	apiUrl := os.Getenv("OPSGENIE_API_URL")
+	env := environment.GetInstance()
+	apiUrl = env.OPSGENIE_API_URL
 	method := "GET"
 
-	apiUrlString = apiUrl + "incidents?query=status%3Aclosed&offset=0&limit=200&sort=createdAt&order=desc"
+	if status == "closed" {
+		apiUrlString = apiUrl + "incidents?query=status%3Aclosed&offset=0&limit=200&sort=createdAt&order=desc"
+	} else if status == "resolved" {
+		apiUrlString = apiUrl + "incidents?query=status%3Aresolved&offset=0&limit=200&sort=createdAt&order=desc"
+	} else if status == "opened" {
+		apiUrlString = apiUrl + "incidents?query=status%3Aopen&offset=0&limit=200&sort=createdAt&order=desc"
+	}
+
 	bodyBytesClosed = api.HandlerSingle(method, apiUrlString)
 	json.Unmarshal(bodyBytesClosed, &respPayload)
-	totalClosed = respPayload.TotalCount
+	total = respPayload.TotalCount
+	getIdFromAll(status)
 
-	apiUrlString = apiUrl + "incidents?query=status%3Aresolved&offset=0&limit=200&sort=createdAt&order=desc"
-	bodyBytesResolved := api.HandlerSingle(method, apiUrlString)
-	json.Unmarshal(bodyBytesResolved, &respPayload)
-	totalResolved = respPayload.TotalCount
-
-	apiUrlString = apiUrl + "incidents?query=status%3Aopen&offset=0&limit=200&sort=createdAt&order=desc"
-	bodyBytesOpened := api.HandlerSingle(method, apiUrlString)
-	json.Unmarshal(bodyBytesOpened, &respPayload)
-	totalOpened = respPayload.TotalCount
-
-	getIdFromAll("resolved")
-
-	return totalClosed, totalResolved, totalOpened, err
+	return total, err
 }
 
 func getIdFromAll(status string) {
-	environment.InitEnv()
-	apiUrl := os.Getenv("OPSGENIE_API_URL")
+	env := environment.GetInstance()
+	apiUrl := env.OPSGENIE_API_URL
 	var responsePayload IncidentList
 	var responsePayloadAdd IncidentList
 	var responsePayloadFull IncidentList

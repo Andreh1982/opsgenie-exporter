@@ -1,4 +1,4 @@
-package opsgenieDomain
+package exporter
 
 import (
 	"encoding/json"
@@ -9,19 +9,33 @@ import (
 	"strings"
 )
 
-func CheckPostMortems(status string) {
+type PostmortemTotalbyIncidentStatus interface {
+	PostmortemTotalbyIncidentStatus(status string) (counterPostmortem int)
+}
 
-	var responsePayload IncidentList
-	var responsePayloadAdd IncidentList
-	var responsePayloadFull IncidentList
+var ApiUrl string
+var responsePayload IncidentList
+var responsePayloadAdd IncidentList
+var responsePayloadFull IncidentList
 
-	environment.InitEnv()
-	apiUrl := os.Getenv("OPSGENIE_API_URL")
+func (o *opsgenieExporter) PostmortemTotalbyIncidentStatus(status string) int {
+
+	env := environment.GetInstance()
+	ApiUrl = os.Getenv(env.OPSGENIE_API_URL)
+
+	counterPostmortem := checkPostMortems(status)
+
+	return counterPostmortem
+}
+
+func checkPostMortems(status string) int {
+
+	var counterPostmortem int
 
 	if status == "closed" {
-		apiUrlString = apiUrl + "incidents?query=status%3Aclosed&offset=0&limit=200&sort=createdAt&order=desc"
+		apiUrlString = ApiUrl + "incidents?query=status%3Aclosed&offset=0&limit=200&sort=createdAt&order=desc"
 	} else if status == "resolved" {
-		apiUrlString = apiUrl + "incidents?query=status%3Aresolved&offset=0&limit=200&sort=createdAt&order=desc"
+		apiUrlString = ApiUrl + "incidents?query=status%3Aresolved&offset=0&limit=200&sort=createdAt&order=desc"
 	}
 
 	bodyBytes := api.HandlerSingle("GET", apiUrlString)
@@ -32,9 +46,9 @@ func CheckPostMortems(status string) {
 	pageUrl := responsePayload.Paging.Last
 	if apiTotal > 100 {
 		if status == "closed" {
-			apiUrlString = apiUrl + "incidents?query=status%3Aclosed&offset=100&limit=300&sort=createdAt&order=desc"
+			apiUrlString = ApiUrl + "incidents?query=status%3Aclosed&offset=100&limit=300&sort=createdAt&order=desc"
 		} else if status == "resolved" {
-			apiUrlString = apiUrl + "incidents?query=status%3Aresolved&offset=100&limit=300&sort=createdAt&order=desc"
+			apiUrlString = ApiUrl + "incidents?query=status%3Aresolved&offset=100&limit=300&sort=createdAt&order=desc"
 		}
 		addBodyBytes := api.HandlerSingle("GET", pageUrl)
 		json.Unmarshal(addBodyBytes, &responsePayloadAdd)
@@ -47,7 +61,7 @@ func CheckPostMortems(status string) {
 		for i := 0; i < total; i++ {
 			fullID, _ := json.Marshal(responsePayloadFull.Data[i].ID)
 			stringID := strings.Replace(string(fullID), "\"", "", -1)
-			CountPostmortemsFromIncidents(status, stringID)
+			countPostmortemsFromIncidents(status, stringID)
 		}
 	} else {
 
@@ -58,19 +72,18 @@ func CheckPostMortems(status string) {
 		for i := 0; i < total; i++ {
 			fullID, _ := json.Marshal(responsePayload.Data[i].ID)
 			stringID := strings.Replace(string(fullID), "\"", "", -1)
-			CountPostmortemsFromIncidents(status, stringID)
+			counterPostmortem = countPostmortemsFromIncidents(status, stringID)
 		}
-
 	}
-
 	if status == "closed" {
-		fmt.Println("# Postmortem Total " + fmt.Sprint(counterPostmortemClosed))
+		fmt.Println("# Postmortem Total " + fmt.Sprint(counterPostmortem))
 	} else if status == "resolved" {
-		fmt.Println("# Postmortem Total " + fmt.Sprint(counterPostmortemResolved))
+		fmt.Println("# Postmortem Total " + fmt.Sprint(counterPostmortem))
 	}
+	return counterPostmortem
 }
 
-func CountPostmortemsFromIncidents(status string, fullID string) {
+func countPostmortemsFromIncidents(status string, fullID string) (counterPostmortem int) {
 
 	var responseTimeline IncidentTimeline
 	apiIncidentTimeLine := "https://api.opsgenie.com/v2/incident-timelines/" + fullID + "/entries"
@@ -82,7 +95,7 @@ func CountPostmortemsFromIncidents(status string, fullID string) {
 			checkText := responseTimeline.Data.Entries[i].Description.Content
 			allLowerCase := strings.ToLower(checkText)
 			if strings.Contains(allLowerCase, "postmortem is published") {
-				counterPostmortemClosed++
+				counterPostmortem = counterPostmortem + 1
 			}
 		}
 	} else if status == "resolved" {
@@ -90,8 +103,9 @@ func CountPostmortemsFromIncidents(status string, fullID string) {
 			checkText := responseTimeline.Data.Entries[i].Description.Content
 			allLowerCase := strings.ToLower(checkText)
 			if strings.Contains(allLowerCase, "postmortem is published") {
-				counterPostmortemResolved++
+				counterPostmortem++
 			}
 		}
 	}
+	return counterPostmortem
 }

@@ -1,4 +1,4 @@
-package opsgenieDomain
+package exporter
 
 type PostmortemTotalbyTeamsStruct []struct {
 	TeamName string `json:"teamname"`
