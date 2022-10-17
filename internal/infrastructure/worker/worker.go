@@ -82,7 +82,7 @@ func GetMetrics(ctx appcontext.Context) {
 			_, counterPostmortemResolved := exporter.New(ctx, &exporter.Input{}).PostmortemTotalbyIncidentStatus(ctx, "resolved")
 			opsPostmortemResolved.Set(float64(counterPostmortemResolved))
 
-			time.Sleep(1 * time.Second)
+			time.Sleep(15 * time.Second)
 		}
 	}()
 }

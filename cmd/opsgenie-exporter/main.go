@@ -35,8 +35,6 @@ func main() {
 
 	setupWorker(ctx, logger, opsgenieExporterUseCases)
 	api.SetupAPI(ctx)
-
-	//	prometheusDomain.PushMetrics()
 }
 
 func setupOpsgenieExporter(ctx appcontext.Context) (exporter.UseCases, error) {
@@ -48,8 +46,8 @@ func setupOpsgenieExporter(ctx appcontext.Context) (exporter.UseCases, error) {
 func setupWorker(ctx appcontext.Context, logger logwrapper.LoggerWrapper, opsgenieExporterUseCases exporter.UseCases) {
 	logger.Info("Initializing Worker")
 	input := worker.Input{
-		Logger: logger,
-		//OpsgenieExporterUseCases: opsgenieExporterUseCases,
+		Logger:                   logger,
+		OpsgenieExporterUseCases: opsgenieExporterUseCases,
 	}
 	worker.Start(ctx, input)
 }

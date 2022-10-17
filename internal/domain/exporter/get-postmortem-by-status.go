@@ -12,6 +12,8 @@ type PostmortemTotalbyIncidentStatus interface {
 func (o *opsgenieExporter) PostmortemTotalbyIncidentStatus(ctx appcontext.Context, status string) (int, int) {
 
 	counterPostmortemClosed, counterPostmortemResolved := opsgenie.CheckPostMortems(ctx, status)
+	sendPostmortemClosed := counterPostmortemClosed
+	sendPostmortemResolved := counterPostmortemResolved
 
-	return counterPostmortemClosed, counterPostmortemResolved
+	return sendPostmortemClosed, sendPostmortemResolved
 }

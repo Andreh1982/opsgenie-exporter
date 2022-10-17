@@ -17,6 +17,9 @@ var counterPostmortemResolved int
 
 func CheckPostMortems(ctx appcontext.Context, status string) (int, int) {
 
+	counterPostmortemClosed = 0
+	counterPostmortemResolved = 0
+
 	apiUrl := environment.GetInstance().OPSGENIE_API_URL
 
 	if status == "closed" {

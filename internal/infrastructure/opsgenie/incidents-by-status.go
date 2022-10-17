@@ -2,7 +2,6 @@ package opsgenie
 
 import (
 	"encoding/json"
-	"fmt"
 	"opsgenie-exporter/internal/infrastructure/api"
 	"opsgenie-exporter/internal/infrastructure/environment"
 )
@@ -40,7 +39,7 @@ func getIdFromAll(status string) {
 	var responsePayload IncidentList
 	var responsePayloadAdd IncidentList
 	var responsePayloadFull IncidentList
-	var total int
+	// var total int
 
 	method := "GET"
 	if status == "closed" {
@@ -62,8 +61,8 @@ func getIdFromAll(status string) {
 		json.Marshal(fullBodyBytes)
 		responsePayloadFull.Data = fullBodyBytes
 
-		total = len(responsePayloadFull.Data)
-		fmt.Println("## Incidents "+status, total)
+		// total = len(responsePayloadFull.Data)
+		// fmt.Println("## Incidents "+status, total)
 		// for i := 0; i < total; i++ {
 		// 	idJson := responsePayloadFull.Data[i].ID
 		// 	createdAtJson := responsePayloadFull.Data[i].CreatedAt
@@ -72,8 +71,8 @@ func getIdFromAll(status string) {
 		// 	fmt.Println(string(idJson), createdAtJson, string(messageJson))
 		// }
 	} else {
-		total = len(responsePayload.Data)
-		fmt.Println("# Incidents "+status, total)
+		// total = len(responsePayload.Data)
+		// fmt.Println("# Incidents "+status, total)
 		// for i := 0; i < total; i++ {
 		// 	idJson := responsePayload.Data[i].ID
 		// 	createdAtJson := responsePayload.Data[i].CreatedAt
