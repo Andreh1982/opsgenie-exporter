@@ -51,7 +51,7 @@ func CheckPostMortems(ctx appcontext.Context, status string) (int, int) {
 		for i := 0; i < total; i++ {
 			fullID, _ := json.Marshal(responsePayloadFull.Data[i].ID)
 			stringID := strings.Replace(string(fullID), "\"", "", -1)
-			countPostmortemsFromIncidents(ctx, status, stringID)
+			counterPostmortemClosed, counterPostmortemResolved = countPostmortemsFromIncidents(ctx, status, stringID)
 		}
 	} else {
 
@@ -85,6 +85,8 @@ func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID
 			checkText := responseTimeline.Data.Entries[i].Description.Content
 			allLowerCase := strings.ToLower(checkText)
 			if strings.Contains(allLowerCase, "postmortem is published") {
+				fmt.Println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+				fmt.Println(responseTimeline.Data.Entries[i].Description.Content)
 				counterPostmortemClosed++
 				ctx.SetTotalPostmortemClosed(counterPostmortemClosed)
 			}
