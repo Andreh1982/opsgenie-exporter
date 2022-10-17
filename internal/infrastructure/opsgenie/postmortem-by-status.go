@@ -12,11 +12,10 @@ import (
 var responsePayload IncidentList
 var responsePayloadAdd IncidentList
 var responsePayloadFull IncidentList
+var counterPostmortemClosed int
+var counterPostmortemResolved int
 
 func CheckPostMortems(ctx appcontext.Context, status string) (int, int) {
-
-	var counterPostmortemClosed int
-	var counterPostmortemResolved int
 
 	apiUrl := environment.GetInstance().OPSGENIE_API_URL
 
@@ -64,14 +63,14 @@ func CheckPostMortems(ctx appcontext.Context, status string) (int, int) {
 		}
 	}
 	if status == "closed" {
-		fmt.Println("# Postmortem Total " + fmt.Sprint(counterPostmortemClosed))
+		fmt.Println("# Postmortem Closed Total " + fmt.Sprint(counterPostmortemClosed))
 	} else if status == "resolved" {
-		fmt.Println("# Postmortem Total " + fmt.Sprint(counterPostmortemResolved))
+		fmt.Println("# Postmortem Resolved Total " + fmt.Sprint(counterPostmortemResolved))
 	}
 	return counterPostmortemClosed, counterPostmortemResolved
 }
 
-func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID string) (counterPostmortemClosed int, counterPostmortemResolved int) {
+func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID string) (int, int) {
 
 	var responseTimeline IncidentTimeline
 	apiIncidentTimeLine := "https://api.opsgenie.com/v2/incident-timelines/" + fullID + "/entries"
@@ -83,9 +82,8 @@ func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID
 			checkText := responseTimeline.Data.Entries[i].Description.Content
 			allLowerCase := strings.ToLower(checkText)
 			if strings.Contains(allLowerCase, "postmortem is published") {
-				counterPostmortemClosed = counterPostmortemClosed + 1
-				ctx.SetTotalTeamIncidentsClosed(counterPostmortemClosed)
-
+				counterPostmortemClosed++
+				ctx.SetTotalPostmortemClosed(counterPostmortemClosed)
 			}
 		}
 	} else if status == "resolved" {

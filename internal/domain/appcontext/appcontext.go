@@ -10,8 +10,10 @@ type Context interface {
 	Logger() logwrapper.LoggerWrapper
 	SetTotalTeamIncidentsClosed(counterTeamIncidentsClosed int) int
 	SetTotalTeamIncidentsResolved(counterTeamIncidentsResolved int) int
-	SetTotalPostmortemResolved(counterPostmortemResolved int) int
-	SetTotalPostmortemClosed(counterPostmortemClosed int) int
+	SetTotalPostmortemResolved(int)
+	GetTotalPostmortemResolved() int
+	SetTotalPostmortemClosed(int)
+	GetTotalPostmortemClosed() int
 }
 
 type appContext struct {
@@ -54,12 +56,18 @@ func (appContext *appContext) SetTotalTeamIncidentsResolved(counterTeamIncidents
 	return appContext.totalTeamIncidentsResolved
 }
 
-func (appContext *appContext) SetTotalPostmortemResolved(counterPostmortem int) int {
-	appContext.totalPostmortemResolved = counterPostmortem
-	return appContext.totalTeamIncidentsResolved
+func (appContext *appContext) SetTotalPostmortemResolved(totalPostmortemResolved int) {
+	appContext.totalPostmortemResolved = totalPostmortemResolved
 }
 
-func (appContext *appContext) SetTotalPostmortemClosed(counterPostmortem int) int {
-	appContext.totalPostmortemClosed = counterPostmortem
-	return appContext.totalTeamIncidentsClosed
+func (appContext *appContext) GetTotalPostmortemResolved() int {
+	return appContext.totalPostmortemResolved
+}
+
+func (appContext *appContext) SetTotalPostmortemClosed(totalPostmortemClosed int) {
+	appContext.totalPostmortemClosed = totalPostmortemClosed
+}
+
+func (appContext *appContext) GetTotalPostmortemClosed() int {
+	return appContext.totalPostmortemClosed
 }
