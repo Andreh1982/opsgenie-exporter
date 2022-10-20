@@ -15,20 +15,17 @@ type Logger interface {
 
 // LoggerWrapper is a wrapper for zap.Logger + Span handling
 type LoggerWrapper interface {
-	SetTraceID(v string) LoggerWrapper
-	SetVersion(v string) LoggerWrapper
+	TraceID(v string) LoggerWrapper
+	Version(v string) LoggerWrapper
 	CreateSpan() LoggerWrapper
 	RemoveSpan() LoggerWrapper
 	Logger // interface extends logger
-	TraceID() string
-	Version() string
-	Span() *Span
 }
 
 type logWrapper struct {
 	logger  Logger
 	traceID string
-	span    *Span
+	span    *span
 	version string
 }
 
@@ -39,26 +36,14 @@ func New(logger Logger) LoggerWrapper {
 	}
 }
 
-func (l *logWrapper) SetTraceID(v string) LoggerWrapper {
+func (l *logWrapper) TraceID(v string) LoggerWrapper {
 	l.traceID = v
 	return l.clone()
 }
 
-func (l *logWrapper) TraceID() string {
-	return l.traceID
-}
-
-func (l *logWrapper) SetVersion(v string) LoggerWrapper {
+func (l *logWrapper) Version(v string) LoggerWrapper {
 	l.version = v
 	return l.clone()
-}
-
-func (l *logWrapper) Version() string {
-	return l.version
-}
-
-func (l *logWrapper) Span() *Span {
-	return l.span
 }
 
 func (l *logWrapper) CreateSpan() LoggerWrapper {
@@ -112,9 +97,9 @@ func (l *logWrapper) mergeField(fields ...zap.Field) []zap.Field {
 	parentID := ""
 	spanID := ""
 	if l.span != nil {
-		spanID = l.span.ID
+		spanID = l.span.id
 		if l.span.parent != nil {
-			parentID = l.span.parent.ID
+			parentID = l.span.parent.id
 		}
 	}
 	s := []zap.Field{

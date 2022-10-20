@@ -2,16 +2,20 @@ package opsgenie
 
 import (
 	"encoding/json"
+	"opsgenie-exporter/internal/domain/appcontext"
 	"opsgenie-exporter/internal/infrastructure/api"
 	"opsgenie-exporter/internal/infrastructure/environment"
 )
 
 var apiUrlString string
 
-func IncidentsTotalbyStatus(status string) (total int, err error) {
+func IncidentsTotalbyStatus(ctx appcontext.Context, status string) (total int, err error) {
 	var bodyBytesClosed []byte
 	var respPayload IncidentList
 	var apiUrl string
+
+	logger := ctx.Logger()
+	logger.Debug("Getting list of all incidents with status " + status)
 
 	env := environment.GetInstance()
 	apiUrl = env.OPSGENIE_API_URL
@@ -28,12 +32,14 @@ func IncidentsTotalbyStatus(status string) (total int, err error) {
 	bodyBytesClosed = api.HandlerSingle(method, apiUrlString)
 	json.Unmarshal(bodyBytesClosed, &respPayload)
 	total = respPayload.TotalCount
-	getIdFromAll(status)
+	getIdFromAll(ctx, status)
 
 	return total, err
 }
 
-func getIdFromAll(status string) {
+func getIdFromAll(ctx appcontext.Context, status string) {
+	logger := ctx.Logger()
+	logger.Debug("Getting ID from all incidents with status " + status)
 	env := environment.GetInstance()
 	apiUrl := env.OPSGENIE_API_URL
 	var responsePayload IncidentList
@@ -70,7 +76,7 @@ func getIdFromAll(status string) {
 
 		// 	fmt.Println(string(idJson), createdAtJson, string(messageJson))
 		// }
-	} else {
+		// } else {
 		// total = len(responsePayload.Data)
 		// fmt.Println("# Incidents "+status, total)
 		// for i := 0; i < total; i++ {
@@ -81,4 +87,5 @@ func getIdFromAll(status string) {
 		// 	fmt.Println(string(idJson), createdAtJson, string(messageJson))
 		// }
 	}
+	logger.Debug("Got all IDs from all incidents with status " + status)
 }

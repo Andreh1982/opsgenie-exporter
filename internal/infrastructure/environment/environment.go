@@ -18,9 +18,9 @@ type Single struct {
 }
 
 func init() {
-	err := godotenv.Load("./env.local")
+	err := godotenv.Load("./.env.local")
 	if err != nil {
-		fmt.Println("Error loading .env file")
+		fmt.Println("Error loading .env.local file")
 	}
 	env := GetInstance()
 	env.Setup()

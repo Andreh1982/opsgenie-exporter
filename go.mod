@@ -3,6 +3,7 @@ module opsgenie-exporter
 go 1.17
 
 require (
+	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.4.0
 	github.com/prometheus/client_golang v1.13.0
 	github.com/satori/go.uuid v1.2.0

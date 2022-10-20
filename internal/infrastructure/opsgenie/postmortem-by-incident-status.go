@@ -2,25 +2,31 @@ package opsgenie
 
 import (
 	"encoding/json"
-	"fmt"
 	"opsgenie-exporter/internal/domain/appcontext"
 	"opsgenie-exporter/internal/infrastructure/api"
 	"opsgenie-exporter/internal/infrastructure/environment"
 	"strings"
+
+	"go.uber.org/zap"
 )
 
-var responsePayload IncidentList
-var responsePayloadAdd IncidentList
-var responsePayloadFull IncidentList
 var counterPostmortemClosed int
 var counterPostmortemResolved int
 
 func CheckPostMortems(ctx appcontext.Context, status string) (int, int) {
 
+	logger := ctx.Logger()
+
+	logger.Debug("Checking Postmortems from incidents", zap.String("incident status", status))
+
 	counterPostmortemClosed = 0
 	counterPostmortemResolved = 0
 
 	apiUrl := environment.GetInstance().OPSGENIE_API_URL
+
+	var responsePayload IncidentList
+	var responsePayloadAdd IncidentList
+	var responsePayloadFull IncidentList
 
 	if status == "closed" {
 		apiUrlString = apiUrl + "incidents?query=status%3Aclosed&offset=0&limit=200&sort=createdAt&order=desc"
@@ -46,34 +52,28 @@ func CheckPostMortems(ctx appcontext.Context, status string) (int, int) {
 		json.Marshal(fullBodyBytes)
 		responsePayloadFull.Data = fullBodyBytes
 
-		fmt.Println("# Incidents with status "+status, apiTotal)
-
 		for i := 0; i < total; i++ {
 			fullID, _ := json.Marshal(responsePayloadFull.Data[i].ID)
 			stringID := strings.Replace(string(fullID), "\"", "", -1)
-			counterPostmortemClosed, counterPostmortemResolved = countPostmortemsFromIncidents(ctx, status, stringID)
+			countPostmortemsFromIncidents(ctx, status, stringID)
 		}
 	} else {
-
-		BodyBytes := api.HandlerSingle("GET", apiUrlString)
-		json.Unmarshal(BodyBytes, &responsePayload)
-		fmt.Println("# Incidents with status "+status, responsePayload.TotalCount)
-
 		for i := 0; i < total; i++ {
 			fullID, _ := json.Marshal(responsePayload.Data[i].ID)
 			stringID := strings.Replace(string(fullID), "\"", "", -1)
-			counterPostmortemClosed, counterPostmortemResolved = countPostmortemsFromIncidents(ctx, status, stringID)
+			countPostmortemsFromIncidents(ctx, status, stringID)
 		}
 	}
-	if status == "closed" {
-		fmt.Println("# Postmortem Closed Total " + fmt.Sprint(counterPostmortemClosed))
-	} else if status == "resolved" {
-		fmt.Println("# Postmortem Resolved Total " + fmt.Sprint(counterPostmortemResolved))
-	}
+
+	logger.Debug("Checking Postmortems Done", zap.String("incident status", status))
 	return counterPostmortemClosed, counterPostmortemResolved
 }
 
 func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID string) (int, int) {
+
+	logger := ctx.Logger()
+
+	logger.Debug("Counting Postmortems from incidents", zap.String("incident status", status))
 
 	var responseTimeline IncidentTimeline
 	apiIncidentTimeLine := "https://api.opsgenie.com/v2/incident-timelines/" + fullID + "/entries"
@@ -85,8 +85,6 @@ func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID
 			checkText := responseTimeline.Data.Entries[i].Description.Content
 			allLowerCase := strings.ToLower(checkText)
 			if strings.Contains(allLowerCase, "postmortem is published") {
-				fmt.Println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-				fmt.Println(responseTimeline.Data.Entries[i].Description.Content)
 				counterPostmortemClosed++
 				ctx.SetTotalPostmortemClosed(counterPostmortemClosed)
 			}
@@ -101,5 +99,8 @@ func countPostmortemsFromIncidents(ctx appcontext.Context, status string, fullID
 			}
 		}
 	}
-	return counterPostmortemClosed, counterPostmortemResolved
+	sendPostmortemClosed := ctx.GetTotalPostmortemClosed()
+	sendPostmortemResolved := ctx.GetTotalPostmortemResolved()
+	logger.Debug("Counting Postmortems Done", zap.String("incident status", status))
+	return sendPostmortemClosed, sendPostmortemResolved
 }

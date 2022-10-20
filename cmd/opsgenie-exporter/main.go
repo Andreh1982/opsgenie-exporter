@@ -9,6 +9,7 @@ import (
 	"opsgenie-exporter/internal/infrastructure/logger/logwrapper"
 	"opsgenie-exporter/internal/infrastructure/worker"
 
+	"github.com/google/uuid"
 	"go.uber.org/zap"
 )
 
@@ -20,14 +21,14 @@ func main() {
 	zaplogger, dispose := logger.New()
 	defer dispose()
 
-	logger := logwrapper.New(&logwrapper.Zap{Logger: *zaplogger}).SetVersion("1.0")
+	logger := logwrapper.New(&logwrapper.Zap{Logger: *zaplogger})
 	logger.Info("Starting OpsGenie-Prometheus Exporter")
 
 	logger.Info("Initializing OpsGenie Client",
 		zap.String("API Endpoint:", env.OPSGENIE_API_URL),
 	)
 
-	opsgenieExporterUseCases, err := setupOpsgenieExporter(ctx)
+	opsgenieExporterUseCases, err := setupOpsgenieExporter(ctx, logger)
 
 	if err != nil {
 		logger.Error("failed to configure opsgenie exporter", zap.Error(err))
@@ -37,9 +38,9 @@ func main() {
 	api.SetupAPI(ctx)
 }
 
-func setupOpsgenieExporter(ctx appcontext.Context) (exporter.UseCases, error) {
+func setupOpsgenieExporter(ctx appcontext.Context, logger logwrapper.LoggerWrapper) (exporter.UseCases, error) {
 	exporterInput := &exporter.Input{}
-	opsgenieExporterUseCases := exporter.New(ctx, exporterInput)
+	opsgenieExporterUseCases := exporter.New(ctx, exporterInput, logger.TraceID(uuid.NewString()))
 	return opsgenieExporterUseCases, nil
 }
 

@@ -62,24 +62,24 @@ func GetMetrics(ctx appcontext.Context) {
 			//		fmt.Println(err)
 			//	}
 
-			_, err := exporter.New(ctx, &exporter.Input{}).PostmortemTotalbyTeams()
+			_, err := exporter.New(ctx, &exporter.Input{}, logger).PostmortemTotalbyTeams()
 			if err != nil {
 				fmt.Println(err)
 			}
 
-			closed, _ := exporter.New(ctx, &exporter.Input{}).IncidentsTotalbyStatus("closed")
+			closed, _ := exporter.New(ctx, &exporter.Input{}, logger).IncidentsTotalbyStatus(ctx, "closed")
 			opsClosed.Set(float64(closed))
 
-			resolved, _ := exporter.New(ctx, &exporter.Input{}).IncidentsTotalbyStatus("resolved")
+			resolved, _ := exporter.New(ctx, &exporter.Input{}, logger).IncidentsTotalbyStatus(ctx, "resolved")
 			opsResolved.Set(float64(resolved))
 
-			opened, _ := exporter.New(ctx, &exporter.Input{}).IncidentsTotalbyStatus("opened")
+			opened, _ := exporter.New(ctx, &exporter.Input{}, logger).IncidentsTotalbyStatus(ctx, "opened")
 			opsOpened.Set(float64(opened))
 
-			counterPostmortemClosed, _ := exporter.New(ctx, &exporter.Input{}).PostmortemTotalbyIncidentStatus(ctx, "closed")
+			counterPostmortemClosed, _ := exporter.New(ctx, &exporter.Input{}, logger).PostmortemTotalbyIncidentStatus(ctx, "closed")
 			opsPostmortemClosed.Set(float64(counterPostmortemClosed))
 
-			_, counterPostmortemResolved := exporter.New(ctx, &exporter.Input{}).PostmortemTotalbyIncidentStatus(ctx, "resolved")
+			_, counterPostmortemResolved := exporter.New(ctx, &exporter.Input{}, logger).PostmortemTotalbyIncidentStatus(ctx, "resolved")
 			opsPostmortemResolved.Set(float64(counterPostmortemResolved))
 
 			time.Sleep(15 * time.Second)

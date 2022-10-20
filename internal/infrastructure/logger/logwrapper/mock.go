@@ -14,20 +14,12 @@ func Mock() LoggerWrapper {
 	return &mock{}
 }
 
-func (m *mock) SetTraceID(v string) LoggerWrapper {
+func (m *mock) TraceID(v string) LoggerWrapper {
 	return m
 }
 
-func (m *mock) TraceID() string {
-	return ""
-}
-
-func (m *mock) SetVersion(v string) LoggerWrapper {
+func (m *mock) Version(v string) LoggerWrapper {
 	return m
-}
-
-func (m *mock) Version() string {
-	return ""
 }
 
 func (m *mock) CreateSpan() LoggerWrapper {
@@ -36,10 +28,6 @@ func (m *mock) CreateSpan() LoggerWrapper {
 
 func (m *mock) RemoveSpan() LoggerWrapper {
 	return m
-}
-
-func (m *mock) Span() *Span {
-	return nil
 }
 
 func (*mock) Info(msg string, fields ...zap.Field) {

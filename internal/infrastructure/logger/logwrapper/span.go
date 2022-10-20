@@ -4,14 +4,14 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-type Span struct {
-	ID     string
-	parent *Span
+type span struct {
+	id     string
+	parent *span
 }
 
-func createSpan(parent *Span) *Span {
-	s := &Span{
-		ID:     uuid.NewV4().String(),
+func createSpan(parent *span) *span {
+	s := &span{
+		id:     uuid.NewV4().String(),
 		parent: parent,
 	}
 	return s
